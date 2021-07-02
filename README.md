@@ -1,6 +1,6 @@
 # Tattootracker
 
-Tattoo tracker is a Sinatra app that allows an artist to create an online portfolio of all the tattoos the have done and of the clients they have worked on. An artist can add, edit, and remove to modify their portfolio.
+Tattoo tracker is a Sinatra app that allows an artist to create an online portfolio of all the tattoos they have done and of the clients they have worked on. An artist can add, edit, and remove to modify their portfolio.
 
 ## Installation
 
