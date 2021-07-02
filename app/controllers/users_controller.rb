@@ -1,8 +1,19 @@
 class UserController < ApplicationController
+
 get "/signup" do
     erb :"users/new"
 end
 
+post "/signup" do
+    user= User.new(params[:user])
+    if user.save 
+        session[:user_id] =user.id
+        redirect "/users/#{user.id}"
+    else
+        @errors = user.errors.full_messages.join(" - ")
+        erb :'/users/new'
+    end
+end
 
 get "/login" do
     erb :"users/login"
@@ -27,4 +38,5 @@ get "/logout" do
     session.clear
     redirect '/'
 
+end
 end
