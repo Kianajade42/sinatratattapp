@@ -1,0 +1,3 @@
+class TattooController < ApplicationController
+
+end
