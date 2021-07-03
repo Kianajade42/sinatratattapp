@@ -6,10 +6,11 @@ class ApplicationController < Sinatra::Base
       enable :sessions
       set :session_secret, 'top_session' 
     end
-
+    
     get "/" do
         erb :welcome
     end
+
 
     helpers do
 
