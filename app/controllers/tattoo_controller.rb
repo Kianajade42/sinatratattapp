@@ -1,12 +1,14 @@
-class TattoosController < ApplicationController
+class TattooController < ApplicationController
+
 get '/tattoos' do
-    @tattoos = current_user.tattoos
-    erb :"tattoos/index"
+   @tattoos = current_user.tattoos
+  redirect erb :"tattoos/index"
 end
 
 get '/tattoos/new' do
     erb :"tattoos/new"
 end
+
  post '/tattoos' do
      tattoo = Tattoo.new(params[:tattoo])
      if tattoo.save
@@ -19,10 +21,10 @@ end
  end
  get '/tattoo/:id' do
         @tattoo = tattoo.find_by(id: params[:id])
-        erb :"tattoo/show"
+        erb :"tattoos/show"
     end
 
-    get '/tattos/:id/edit' do
+    get '/tattoos/:id/edit' do
         @tattoo = tattoo.find_by(id: params[:id])
         if @tattoo.user == current_user
             erb :"tattoos/edit"
@@ -31,7 +33,7 @@ end
         end
     end 
 
-    patch '/tattos/:id' do
+    patch '/tattoos/:id' do
         @tattoo = Tattoo.find_by(id: params[:id])
         if @tattoo.user == current_user
             @tattoo.update(params[:book])

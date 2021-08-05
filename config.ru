@@ -1,8 +1,11 @@
 require './config/environment'
 
-ActiveRecord::Migrator
+ ActiveRecord::Migrator
+  #raise 'Migrations are pending. Run `rake db:migrate` to resolve.'
+#end
+
 
 use Rack::MethodOverride
-run ApplicationController
 use UsersController
-use TattoosController
+use TattooController
+run ApplicationController

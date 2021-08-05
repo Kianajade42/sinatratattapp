@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
-    has_many :tattoos
-
-    has_secure_password
-    validates :username, presence: true
-    validates :username, uniqueness: true
+   #has_secure_password 
+   has_many :tattoos
+   #self.primary_key = "id"
 end
